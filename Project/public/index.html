@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mini keyboard</title>
+  <link rel="stylesheet" href="tailwind.css" />
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="/__/firebase/8.4.3/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="/__/firebase/8.4.3/firebase-analytics.js"></script>
+
+  <!-- Initialize Firebase -->
+  <script src="/__/firebase/init.js"></script>
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <style>
+    .unselect {
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .hide-scroll-bar {
+      overflow-y: scroll;
+    }
+
+    .hide-scroll-bar::-webkit-scrollbar {
+      display: none;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body class="hide-scroll-bar" style="scroll-behavior: smooth; height: 100vh; width: 100vw;">
+  <!-- navBar -->
+  <nav class="bg-gray-900 fixed h-auto w-screen z-50 unselect">
+    <div class="relative mx-auto px-2 sm:px-6 lg:px-8 2xl:py-4 w-screenh-full">
+      <div class="relative flex items-center justify-between h-full left-0 w-screen">
+        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+          <!-- Mobile menu button-->
+          <button type="button"
+            class="inline-flex items-center justify-center p-2 text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+            onclick="showMenu()">
+            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+        <div class="flex-1 flex justify-center sm:items-stretch sm:justify-start">
+          <div class="flex">
+            <div class="text-yellow-400 text-3xl 2xl:text-5xl top-1/2 relative" style="transform: translate(0,-50%);">
+              SCK
+            </div>
+          </div>
+          <div class="hidden sm:block sm:ml-6">
+            <div class="flex space-x-4">
+              <a href="#page_abstract"
+                class="text-gray-300 px-3 py-2 text-base font-medium hover:text-yellow-400 2xl:text-3xl" id="abstract1">
+                บทคัดย่อ
+              </a>
+
+              <a href="#page_detail"
+                class="text-gray-300 px-3 py-2 text-base font-medium hover:text-yellow-400 2xl:text-3xl" id="detail1">
+                รายละเอียดโครงงาน
+              </a>
+
+              <a href="#page_code"
+                class="text-gray-300 px-3 py-2 text-base font-medium hover:text-yellow-400 2xl:text-3xl" id="code1">
+                รายละเอียดโค้ด
+              </a>
+
+              <a href="#page_contact"
+                class="text-gray-300 px-3 py-2 text-base font-medium hover:text-yellow-400 2xl:text-3xl" id="contact1">
+                ติดต่อ
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu, show/hide based on menu state. -->
+    <div class="sm:hidden hidden fixed z-50 w-screen bg-gray-900 h-auto" id="mobile_menu">
+      <div class="px-2 pt-2 pb-3 space-y-1 flex-col flex">
+        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 " -->
+        <a href="#page_abstract" class="text-gray-300 px-3 py-2 text-base font-medium hover:text-yellow-400"
+          id="abstract2">
+          บทคัดย่อ
+        </a>
+
+        <a href="#page_detail" class="text-gray-300 px-3 py-2 text-base font-medium hover:text-yellow-400 w-full"
+          id="detail2">
+          รายละเอียดโครงงาน
+        </a>
+
+        <a href="#page_code" class="text-gray-300 px-3 py-2 text-base font-medium hover:text-yellow-400 w-full"
+          id="code2">
+          รายละเอียดโค้ด
+        </a>
+
+        <a href="#page_contact" class="text-gray-300 px-3 py-2 text-base font-medium hover:text-yellow-400 w-full"
+          id="contact2">
+          ติดต่อ
+        </a>
+      </div>
+    </div>
+  </nav>
+  <!-- navBar -->
+
+  <!-- main -->
+  <div class="w-screen h-auto">
+    <!-- Content -->
+
+    <!-- welcome -->
+    <div class="relative w-full h-screen bg-black" id="page_welcome">
+      <!-- images -->
+      <div class="absolute z-20 opacity-10 w-full h-full" style="
+            background-image: url('images/screen-0.jpg');
+            background-size: cover;
+          "></div>
+      <div class="text-white relative text-center w-full h-auto top-1/2" style="transform: translate(0, -50%)">
+        <div class="text-4xl text-yellow-500 sm:text-7xl" data-aos="zoom-in" data-aos-delay="300"
+          data-aos-duration="1300">
+          MINI PROJECT<br />
+        </div>
+        <div class="text-5xl tracking-wider sm:text-8xl sm:tracking-widest text-white" data-aos="zoom-in"
+          data-aos-delay="1500" data-aos-duration="2000">
+          COMPRO
+        </div>
+      </div>
+    </div>
+    <!-- welcome -->
+
+    <!-- บทคัดย่อ -->
+    <div class="relative w-full h-screen bg-black pointer-events-none unselect" id="page_abstract">
+      <!-- images -->
+      <div class="absolute z-20 opacity-30 sm:w-6/12 h-full right-0 w-full sm:bg-left" style="
+        background-image: url('images/screen-2.png');
+        background-size: cover;
+        background-position: left;
+      "></div>
+      <div class="text-white relative text-center h-auto p-5 z-20 w-full pt-20">
+        <div class="text-4xl text-yellow-400 mb-4 2xl:text-7xl" data-aos="fade-right">บทคัดย่อ</div>
+        <div data-aos="fade-right" data-aos-duration="2000" class="text-sm sm:text-xl 2xl:text-3xl">โครงงาน Mini keyboard
+          นี้จัดทำขึ้นเพื่อความสดวกของผู้ใช้งานคอมพิวเตอร์ เนื่องจากในปัจจุบัน คอมพิวเตอร์มีปุ่มคีย์ลัด
+          มากมายทำให้มีผู้ใช้ส่วนหนึ่งไม่สามารถจำการกดคีย์ลัดหรือยุ่งยากในการกดปุ่มที่หลากหลาย
+          เพื่อให้เกิดความสดวกกับผู้ใช้งานเราจึงได้นำความรู้ ในเรื่องของ Introduction to Microcontroller
+          มาประยุกต์ใช้ในโครงงานนี้ และจากการใช้เรื่องนี้ทำให้ ผู้ทำโครงงานได้คึกษาในด้านการทำงาน
+          การเขียนโปรแกรมและการต่อบอร์ด มากขึ้น โดย Mini keyboard ที่เราทำนั้น มีอุปกรณ์หลักๆเป็น บอร์ด อาดูโน่ รุ่น
+          ลีโอนาโด สาย usb type A ไป type c โพรโทบอร์ด สวิทช์ ตัวต้านทาน และใช้โปรแกรม Arduino
+          เพื่อนำมาเขียนโปรมแกรมการทำงาน และ มาสร้างเป็นปุ่มคีย์ลัดต่างๆ เช่น ปุ่มล็อคหน้าจอวินโดว์ ปุ่มแคปหน้าจอ
+          ปุ่มย้อนกลับ เป็นต้น</div>
+      </div>
+    </div>
+    <!-- บทคัดย่อ -->
+
+    <!-- รายละเอียดโครงงาน -->
+    <div class="relative w-screen h-screen bg-black pointer-events-none unselect" id="page_detail">
+      <!-- images -->
+      <div class="absolute z-20 opacity-30 h-full right-0 w-full sm:bg-left" style="
+        background-image: url('images/screen-1.jpg');
+        background-size: cover;
+        background-position: left;
+      "></div>
+      <div class="text-white relative text-center h-auto p-5 z-20 w-full pt-20">
+        <div class="text-3xl text-yellow-400 mb-4 2xl:text-7xl" data-aos="fade-right">รายละเอียดโครงงาน</div>
+        <img src="images/detail" class="w-full sm:w-6/12 2xl:w-8/12 mx-auto relative object-cover" data-aos="fade-right"
+          data-aos-duration="2000">
+      </div>
+    </div>
+    <!-- รายละเอียดโครงงาน -->
+
+    <!-- รายละเอียดโค้ด -->
+    <div class="relative w-screen h-auto bg-black" id="page_code">
+      <!-- images -->
+      <div class="absolute z-20 opacity-30 h-full right-0 w-full sm:bg-left" style="
+        background-image: url('images/screen-3.jpg');
+        background-size: cover;
+        background-position: left;
+      "></div>
+      <div class="text-white relative text-center h-full p-5 z-20 w-full pt-20">
+        <div class="text-4xl 2xl:text-7xl 2xl:text-7xl text-yellow-400 mb-4 pointer-events-none unselect"
+          data-aos="fade-right">รายละเอียดโค้ด</div>
+        <div
+          class="tracking-widest relative sm:w-8/12 w-full h-auto bg-black bg-opacity-70 sm:bg-opacity-30 rounded-lg mx-auto text-left p-5 border-2 border-white z-200">
+          <div data-aos="fade-right" data-aos-duration="2000" class="text-xs sm:text-2xl 2xl:text-3xl">
+            <span style="color: #ff2600;">#include</span> <span style="color: cyan;">&ltKeyboard.h&gt</span> <br>
+            <span style="color: #a2ff00;">int</span>
+            btn2,btn3,btn4,btn5;<br>
+            <span style="color: #a2ff00;">int</span>
+            btn6,btn7,btn8,btn9,btn10;<br>
+            <span style="color: #a2ff00;">int</span>
+            btn11,btn12,btn13;<br>
+
+            <span style="color: #a2ff00;">void</span> <span style="color: #0095ff;">setup</span>() { <br>
+            &emsp;<span style="color: red;">pinMode</span>(<span style="color: #00ffbf;">2</span>, <span
+              style="color: #00ffbf;">INPUT</span>);<br>
+            &emsp;<span style="color: red;">pinMode</span>(<span style="color: #00ffbf;">3</span>, <span
+              style="color: #00ffbf;">INPUT</span>);<br>
+            &emsp;<span style="color: red;">pinMode</span>(<span style="color: #00ffbf;">4</span>, <span
+              style="color: #00ffbf;">INPUT</span>);<br>
+            &emsp;<span style="color: red;">pinMode</span>(<span style="color: #00ffbf;">5</span>, <span
+              style="color: #00ffbf;">INPUT</span>);<br>
+            &emsp;<span style="color: red;">pinMode</span>(<span style="color: #00ffbf;">6</span>, <span
+              style="color: #00ffbf;">INPUT</span>);<br>
+            &emsp;<span style="color: red;">pinMode</span>(<span style="color: #00ffbf;">7</span>, <span
+              style="color: #00ffbf;">INPUT</span>);<br>
+            &emsp;<span style="color: red;">pinMode</span>(<span style="color: #00ffbf;">8</span>, <span
+              style="color: #00ffbf;">INPUT</span>);<br>
+            &emsp;<span style="color: red;">pinMode</span>(<span style="color: #00ffbf;">9</span>, <span
+              style="color: #00ffbf;">INPUT</span>);<br>
+            &emsp;<span style="color: red;">pinMode</span>(<span style="color: #00ffbf;">10</span>, <span
+              style="color: #00ffbf;">INPUT</span>);<br>
+            &emsp;<span style="color: red;">pinMode</span>(<span style="color: #00ffbf;">11</span>, <span
+              style="color: #00ffbf;">INPUT</span>);<br>
+            &emsp;<span style="color: red;">pinMode</span>(<span style="color: #00ffbf;">12</span>, <span
+              style="color: #00ffbf;">INPUT</span>);<br>
+            &emsp;<span style="color: red;">pinMode</span>(<span style="color: #00ffbf;">13</span>, <span
+              style="color: #00ffbf;">INPUT</span>);<br>
+            &emsp;<span style="color: red;">digitalWrite</span>(<span style="color: #00ffbf;">2</span>, <span
+              style="color: #00ffbf;">HIGH</span>);<br>
+            &emsp;<span style="color: red;">digitalWrite</span>(<span style="color: #00ffbf;">3</span>, <span
+              style="color: #00ffbf;">HIGH</span>);<br>
+            &emsp;<span style="color: red;">digitalWrite</span>(<span style="color: #00ffbf;">4</span>, <span
+              style="color: #00ffbf;">HIGH</span>);<br>
+            &emsp;<span style="color: red;">digitalWrite</span>(<span style="color: #00ffbf;">5</span>, <span
+              style="color: #00ffbf;">HIGH</span>);<br>
+            &emsp;<span style="color: red;">digitalWrite</span>(<span style="color: #00ffbf;">6</span>, <span
+              style="color: #00ffbf;">HIGH</span>);<br>
+            &emsp;<span style="color: red;">digitalWrite</span>(<span style="color: #00ffbf;">7</span>, <span
+              style="color: #00ffbf;">HIGH</span>);<br>
+            &emsp;<span style="color: red;">digitalWrite</span>(<span style="color: #00ffbf;">8</span>, <span
+              style="color: #00ffbf;">HIGH</span>);<br>
+            &emsp;<span style="color: red;">digitalWrite</span>(<span style="color: #00ffbf;">9</span>, <span
+              style="color: #00ffbf;">HIGH</span>);<br>
+            &emsp;<span style="color: red;">digitalWrite</span>(<span style="color: #00ffbf;">10</span>, <span
+              style="color: #00ffbf;">HIGH</span>);<br>
+            &emsp;<span style="color: red;">digitalWrite</span>(<span style="color: #00ffbf;">11</span>, <span
+              style="color: #00ffbf;">HIGH</span>);<br>
+            &emsp;<span style="color: red;">digitalWrite</span>(<span style="color: #00ffbf;">12</span>, <span
+              style="color: #00ffbf;">HIGH</span>);<br>
+            &emsp;<span style="color: red;">digitalWrite</span>(<span style="color: #00ffbf;">13</span>, <span
+              style="color: #00ffbf;">HIGH</span>);<br>
+            }<br>
+
+            <span style="color: #a2ff00;">void</span> <span style="color: #0095ff;">loop</span>() {<br>
+            &emsp;btn2 = <span style="color: red;">digitalRead</span>(<span style="color: #00ffbf;">2</span>);<br>
+            &emsp;<span style="color: #a2ff00;">if</span>(btn2 == <span style="color: #00ffbf;">0</span>){<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.press</span>(KEY_LEFT_CTRL);<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.press</span>(KEY_LEFT_SHIFT);<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.press</span>(KEY_ESC);<br>
+            &emsp;&emsp;<span style="color: red;">delay</span>(<span style="color: #00ffbf;">150</span>);<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.releaseAll</span>();<br>
+            &emsp;}<br>
+            &emsp;btn3 = <span style="color: red;">digitalRead</span>(<span style="color: #00ffbf;">3</span>);<br>
+            &emsp;<span style="color: #a2ff00;">if</span>(btn3 == <span style="color: #00ffbf;">0</span>){<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.press</span>(KEY_LEFT_CTRL);<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.press</span>(KEY_LEFT_SHIFT);<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.press</span>(<span style="color: #00ffbf;">'n'</span>);<br>
+            &emsp;&emsp;<span style="color: red;">delay</span>(<span style="color: #00ffbf;">150</span>);<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.releaseAll</span>();<br>
+            &emsp;}<br>
+            &emsp;btn4 = <span style="color: red;">digitalRead</span>(<span style="color: #00ffbf;">4</span>);<br>
+            &emsp;<span style="color: #a2ff00;">if</span>(btn4 == <span style="color: #00ffbf;">0</span>){<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.press</span>(KEY_LEFT_CTRL);<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.press</span>(KEY_LEFT_ALT);<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.press</span>(KEY_DELETE);<br>
+            &emsp;&emsp;<span style="color: red;">delay</span>(<span style="color: #00ffbf;">150</span>);<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.releaseAll</span>();<br>
+            &emsp;}<br>
+            &emsp;btn5 = <span style="color: red;">digitalRead</span>(<span style="color: #00ffbf;">5</span>);<br>
+            &emsp;<span style="color: #a2ff00;">if</span>(btn5 == <span style="color: #00ffbf;">0</span>){<br>
+            &emsp;&emsp; <span style="color: red;">Keyboard.press</span>(KEY_RIGHT_GUI);<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.press</span>(<span style="color: #00ffbf;">'l'</span>);<br>
+            &emsp;&emsp;<span style="color: red;">delay</span>(<span style="color: #00ffbf;">150</span>);<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.releaseAll</span>();<br>
+            &emsp;}<br>
+            &emsp;btn6 = <span style="color: red;">digitalRead</span>(<span style="color: #00ffbf;">6</span>);<br>
+            &emsp;<span style="color: #a2ff00;">if</span>(btn6 == <span style="color: #00ffbf;">0</span>){<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.press</span>(KEY_RIGHT_GUI);<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.press</span>(KEY_LEFT_SHIFT);<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.press</span>(<span style="color: #00ffbf;">'s'</span>);<br>
+            &emsp;&emsp;<span style="color: red;">delay</span>(<span style="color: #00ffbf;">150</span>);<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.releaseAll</span>();<br>
+            &emsp;}<br>
+            &emsp;btn7 = <span style="color: red;">digitalRead</span>(<span style="color: #00ffbf;">7</span>);<br>
+            &emsp;<span style="color: #a2ff00;">if</span>(btn7 == <span style="color: #00ffbf;">0</span>){<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.press</span>(KEY_LEFT_CTRL);<br>
+            &emsp;&emsp; <span style="color: red;">Keyboard.press</span>(<span style="color: #00ffbf;">'x'</span>);<br>
+            &emsp;&emsp;<span style="color: red;">delay</span>(<span style="color: #00ffbf;">150</span>);<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.releaseAll</span>();<br>
+            &emsp;}<br>
+            &emsp;btn8 = <span style="color: red;">digitalRead</span>(<span style="color: #00ffbf;">8</span>);<br>
+            &emsp;<span style="color: #a2ff00;">if</span>(btn8 == <span style="color: #00ffbf;">0</span>){<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.press</span>(KEY_LEFT_CTRL);<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.press</span>(<span style="color: #00ffbf;">'v'</span>);<br>
+            &emsp;&emsp;<span style="color: red;">delay</span>(<span style="color: #00ffbf;">150</span>);<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.releaseAll</span>();<br>
+            &emsp;}<br>
+            &emsp;btn9 = <span style="color: red;">digitalRead</span>(<span style="color: #00ffbf;">9</span>);<br>
+            &emsp;<span style="color: #a2ff00;">if</span>(btn9 == <span style="color: #00ffbf;">0</span>){<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.press</span>(KEY_LEFT_CTRL);<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.press</span>(<span style="color: #00ffbf;">'a'</span>);<br>
+            &emsp;&emsp;<span style="color: red;">delay</span>(<span style="color: #00ffbf;">150</span>);<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.releaseAll</span>();<br>
+            &emsp;}<br>
+            &emsp;btn10 = <span style="color: red;">digitalRead</span>(<span style="color: #00ffbf;">10</span>);<br>
+            &emsp;<span style="color: #a2ff00;">if</span>(btn10 == <span style="color: #00ffbf;">0</span>){<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.press</span>(KEY_LEFT_CTRL);<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.press</span>(<span style="color: #00ffbf;">'z'</span>);<br>
+            &emsp;&emsp;<span style="color: red;">delay</span>(<span style="color: #00ffbf;">150</span>);<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.releaseAll</span>();<br>
+            &emsp;}<br>
+            &emsp;btn11 = <span style="color: red;">digitalRead</span>(<span style="color: #00ffbf;">11</span>);<br>
+            &emsp;<span style="color: #a2ff00;">if</span>(btn11 == <span style="color: #00ffbf;">0</span>){<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.press</span>(KEY_RIGHT_ALT);<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.press</span>(KEY_F4);<br>
+            &emsp;&emsp;<span style="color: red;">delay</span>(<span style="color: #00ffbf;">150</span>);<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.releaseAll</span>();<br>
+            &emsp;}<br>
+            &emsp;btn12 = <span style="color: red;">digitalRead</span>(<span style="color: #00ffbf;">12</span>);<br>
+            &emsp;<span style="color: #a2ff00;">if</span>(btn12 == <span style="color: #00ffbf;">0</span>){<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.press</span>(KEY_LEFT_CTRL);<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.press</span>(<span style="color: #00ffbf;">'y'</span>);<br>
+            &emsp;&emsp;<span style="color: red;">delay</span>(<span style="color: #00ffbf;">150</span>);<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.releaseAll</span>();<br>
+            &emsp;}<br>
+            &emsp;btn13 = <span style="color: red;">digitalRead</span>(<span style="color: #00ffbf;">13</span>);<br>
+            &emsp;<span style="color: #a2ff00;">if</span>(btn13 == <span style="color: #00ffbf;">0</span>){<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.press</span>(KEY_LEFT_CTRL);<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.press</span>(<span style="color: #00ffbf;">'c'</span>);<br>
+            &emsp;&emsp;<span style="color: red;">delay</span>(<span style="color: #00ffbf;">150</span>);<br>
+            &emsp;&emsp;<span style="color: red;">Keyboard.releaseAll</span>();<br>
+            &emsp;}<br>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- รายละเอียดโค้ด -->
+
+    <!-- ติดต่อ -->
+    <div class="relative w-screen h-auto bg-black pointer-events-none unselect" id="page_contact">
+      <!-- images -->
+      <div class="absolute z-20 opacity-30 h-full right-0 w-full sm:bg-left" style="
+        background-image: url('images/screen-4.jpg');
+        background-size: cover;
+        background-position: left;
+      "></div>
+      <div class="text-white relative text-center h-auto sm:h-screen p-5 z-20 w-screen pt-20">
+        <div class="text-yellow-400 mb-4 text-4xl 2xl:text-7xl relative" data-aos="fade-right">ติดต่อ</div>
+        <div class="w-full h-5/6 relative">
+          <div class="text-white w-full h-auto relative mx-auto sm:flex sm:flex-row sm:space-x-4 justify-between sm:justify-center bg-black bg-opacity-70">
+            <div data-aos="fade-right" data-aos-duration="2000" data-aos-delay="100"
+              class="mb-4 sm:mb-0 p-5 w-full sm:w-3/12 h-full border-2 border-yellow-500 rounded-lg relative">
+              <div
+                class="rounded-full h-28 w-28 bg-black relative mx-auto border-2 border-yellow-500 bg-opacity-50 mb-2">
+                <img src="images/wave" class="w-full h-full object-cover rounded-full">
+              </div>
+              <div class="text-xl sm:text-2xl 2xl:text-4xl">นายณัฐพงษ์ ปทุมสูตร</div>
+              <div class="text-xl sm:text-2xl 2xl:text-3xl text-yellow-500 mb-4">63070054</div>
+
+            </div>
+            <div data-aos="fade-right" data-aos-duration="2000" data-aos-delay="200"
+              class="mb-4 sm:mb-0 p-5 w-full sm:w-3/12 h-full border-2 border-yellow-500 rounded-lg relative">
+              <div
+                class="rounded-full h-28 w-28 bg-black relative mx-auto border-2 border-yellow-500 bg-opacity-50 mb-2">
+                <img src="images/pao.jpg" class="w-full h-full object-cover rounded-full">
+              </div>
+              <div class="text-xl sm:text-2xl 2xl:text-4xl">นางสาวนฤมล ทองเชื้อ</div>
+              <div class="text-xl sm:text-2xl 2xl:text-3xl text-yellow-500 mb-4">63070094</div>
+
+            </div>
+            <div data-aos="fade-right" data-aos-duration="2000" data-aos-delay="300"
+              class="mb-4 sm:mb-0 p-5 w-full sm:w-3/12 h-full border-2 border-yellow-500 rounded-lg relative">
+              <div
+                class="rounded-full h-28 w-28 bg-black relative mx-auto border-2 border-yellow-500 bg-opacity-50 mb-2">
+                <img src="images/boom.jpg" class="w-full h-full object-cover rounded-full">
+              </div>
+              <div class="text-xl sm:text-2xl 2xl:text-4xl">นายภานุพงศ์ เฉลยรัตน์</div>
+              <div class="text-xl sm:text-2xl 2xl:text-3xl text-yellow-500 mb-4">63070134</div>
+
+            </div>
+            <div data-aos="fade-right" data-aos-duration="2000" data-aos-delay="400"
+              class="mb-4 sm:mb-0 p-5 w-full sm:w-3/12 h-full border-2 border-yellow-500 rounded-lg relative">
+              <div
+                class="rounded-full h-28 w-28 bg-black relative mx-auto border-2 border-yellow-500 bg-opacity-50 mb-2">
+                <img src="images/bank.jpg" class="w-full h-full object-cover rounded-full">
+              </div>
+              <div class="text-xl sm:text-2xl 2xl:text-4xl">นายกิตติภพ ปังตระกุล</div>
+              <div class="text-xl sm:text-2xl 2xl:text-3xl text-yellow-500 mb-4">63070010</div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ติดต่อ -->
+
+    <!-- Content -->
+  </div>
+</body>
+<script>
+  function showMenu() {
+    mobile_menu.classList.toggle("hidden");
+  }
+</script>
+
+<script>
+  AOS.init({
+    duration: 1200,
+  });
+</script>
+
+</html>
