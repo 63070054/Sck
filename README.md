@@ -1,3 +1,3 @@
-# Sck KEYBOARD SHORTCUT
+# Sck (SHORTCUT KEYBOARD)
 created by Ardunio Leonardo<br>
-  [[ **YouTube** ](https://www.youtube.com/watch?v=Wz_yLwDMHPM)]
+[[ **YouTube** ](https://www.youtube.com/watch?v=Wz_yLwDMHPM)]
