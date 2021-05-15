@@ -4,10 +4,10 @@ created by Ardunio Leonardo<br>
 
 
 
-                                                                         หัวข้อ	<br> Mini keyboard
+                                                                         หัวข้อ				Mini keyboard
                                                                          
 			    
-   ชื่อ - สกุล   
+&emsp;ชื่อ - สกุล   
 นายกิตติภพ  ปังตระกูล 63070010<br>
 นายณัฐพงษ์ ปทุมสูตร 63070054<br>
 นายภานุพงศ์ เฉลยรัตน์ 63070134<br>
