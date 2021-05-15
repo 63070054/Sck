@@ -4,7 +4,7 @@ created by Ardunio Leonardo<br>
 
 
 
-                                                                         หัวข้อ				Mini keyboard
+                                                                         หัวข้อ	<br> Mini keyboard
                                                                          
 			    
    ชื่อ - สกุล   
