@@ -1,6 +1,6 @@
 # Sck [SHORTCUT KEYBOAR]
 created by Ardunio Leonardo<br>
-『[ **YOUTUBE** ](https://www.youtube.com/watch?v=Wz_yLwDMHPM)』┇『[ **WEBSITE** ](https://mini-keyboard-7cbfa.web.app/)』
+『[ **YOUTUBE** ](https://www.youtube.com/watch?v=Wz_yLwDMHPM)』┇『[ **WEBSITE** ](https://mini-keyboard-7cbfa.web.app/)』┇『[ **POSTER** ](https://github.com/63070054/Sck/blob/main/poster.pdf)』
 
 
 
